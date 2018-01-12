@@ -1,23 +1,27 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 
 import {AppComponent} from './app.component';
 import {BookComponent} from './components/book/book.component';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {RouterModule, Routes} from '@angular/router';
+import {MusicComponent} from './components/music/music.component';
 
-const appRoutes: Routes = [
+const appRoutes: Routes = [ // Добавляем роутингам url
   {
-    path: 'books',
-    component: BookComponent,
-    data: {title: 'Book List'}
-  },
-  {
-    path: '',
+    path: '', // Стартовая страница
     redirectTo: '/books',
     pathMatch: 'full'
+  },
+  {
+    path: 'books', // компонента book
+    component: BookComponent
+  },
+  {
+    path: 'music', // компонента music
+    component: BookComponent
   }
 ];
 
@@ -26,6 +30,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     BookComponent,
+    MusicComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +38,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
-      {
-        enableTracing: true // debugger rest api
-      }
+      {enableTracing: true} // debugger REST API
     )
   ],
   providers: [],

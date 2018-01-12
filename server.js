@@ -5,6 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var book = require('./src/app/router/Books'); // роутер для передачи rest api
+var music = require('./src/app/router/Musics'); // music
 var app = express();
 var mongoose = require('mongoose');
 
@@ -24,8 +25,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': 'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/books', express.static(path.join(__dirname, 'dist')));
+app.use(['/books', '/musics'], express.static(path.join(__dirname, 'dist')));
 app.use('/book', book);
+app.use('/music', music);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

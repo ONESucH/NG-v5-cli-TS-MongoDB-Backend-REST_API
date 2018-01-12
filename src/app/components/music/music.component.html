@@ -1,0 +1,11 @@
+<div class="music-pages">
+  <div class="title">{{title}}</div>
+  <div class="music-pages">
+    <div class="musics" *ngFor="let item of music">
+      <h4>{{item.name_music}}</h4>
+      <a href="#"><img src={{item.albums}} alt="albom"></a>
+      <div class="autor">{{item.author}}</div>
+      <div>{{item.genre}}</div>
+    </div>
+  </div>
+</div>
