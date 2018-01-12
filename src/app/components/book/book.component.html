@@ -1,0 +1,12 @@
+<div class="books-pages">
+  <div class="title">{{title}}</div>
+  <div class="books-list">
+    <div class="book" *ngFor="let book of books">
+      <h4>{{book.title}}</h4>
+      <a href="#"><img src={{book.img}} alt="user"></a>
+      <div class="autor">{{book.author}}</div>
+      <div>{{book.description}}</div>
+      <div>{{book.updated_date}}</div>
+    </div>
+  </div>
+</div>

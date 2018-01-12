@@ -1,0 +1,45 @@
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+
+
+import {AppComponent} from './app.component';
+import {BookComponent} from './components/book/book.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  {
+    path: 'books',
+    component: BookComponent,
+    data: {title: 'Book List'}
+  },
+  {
+    path: '',
+    redirectTo: '/books',
+    pathMatch: 'full'
+  }
+];
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    BookComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {
+        enableTracing: true // debugger rest api
+      }
+    )
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+
+export class AppModule {}
