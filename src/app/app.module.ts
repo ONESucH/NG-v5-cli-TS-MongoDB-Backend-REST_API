@@ -25,7 +25,6 @@ const appRoutes: Routes = [ // Добавляем роутингам url
   }
 ];
 
-
 @NgModule({
   declarations: [
     AppComponent,
